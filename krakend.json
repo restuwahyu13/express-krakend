@@ -565,7 +565,7 @@
 				"grant"
 			],
 			"output_encoding": "no-op",
-			"@comment": "results all author",
+			"@comment": "result author by specific id",
 			"backend": [
 				{
 					"host": ["http://author-service:3001"],

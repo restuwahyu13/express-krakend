@@ -72,7 +72,7 @@ router.get('/author/results', authToken, async (req, res) => {
 	})
 })
 
-router.get('/book/result/:id', authToken, async (req, res) => {
+router.get('/author/result/:id', authToken, async (req, res) => {
 	if (!mongoose.isValidObjectId(req.body.bookId)) {
 		return res.status(401).json({
 			status: 'FIND_AUTHOR_ERROR',
