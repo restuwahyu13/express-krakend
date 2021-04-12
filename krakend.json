@@ -547,6 +547,55 @@
 					}
 				}
 			]
+		},
+		{
+			"endpoint": "/author/{id}",
+			"method": "GET",
+			"concurrent_calls": 1,
+			"headers_to_pass": [
+				"Accept-Encoding",
+				"Authorization",
+				"Content-Type",
+				"Content-Lenght",
+				"Host",
+				"Origin",
+				"User-Agent",
+				"accessToken",
+				"refreshToken",
+				"grant"
+			],
+			"output_encoding": "no-op",
+			"@comment": "results all author",
+			"backend": [
+				{
+					"host": ["http://author-service:3001"],
+					"method": "GET",
+					"url_pattern": "/api/v1/author/result/{id}",
+					"encoding": "no-op",
+					"is_collection": false,
+					"disable_host_sanitize": false,
+					"extra_configs": {
+						"github.com/devopsfaith/krakend-jsonschema": {
+							"type": "object",
+							"properties": {
+								"status": {
+									"type": "string"
+								},
+								"code": {
+									"type": "integer"
+								},
+								"method": {
+									"type": "string"
+								},
+								"message": {
+									"type": "string"
+								}
+							},
+							"required": ["status", "code", "method", "message"]
+						}
+					}
+				}
+			]
 		}
 	]
 }
