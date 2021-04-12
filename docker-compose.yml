@@ -1,0 +1,55 @@
+version: '3.8'
+services:
+  #####################
+  # App Service
+  #####################
+  webapp:
+    restart: always
+    build: .
+    env_file: .env
+    ports:
+      - 3000:3000
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+    networks:
+      - api-gateway
+    depends_on:
+      - db
+  #####################
+  # Mongo Service
+  #####################
+  db:
+    image: mongo
+    restart: always
+    ports:
+      - 27017:27017
+    volumes:
+      - mongo-data:/var/lib/data
+    networks:
+      - api-gateway
+  #####################
+  # krakend Service
+  #####################
+  proxy:
+    image: devopsfaith/krakend:latest
+    restart: always
+    ports:
+      - 8080:8080
+      - 8090:8090
+    volumes:
+      - ./krakend.json:/etc/krakend/krakend.json
+    depends_on:
+      - webapp
+    networks:
+      - api-gateway
+  #####################
+  # Volumes Service
+  #####################
+volumes:
+  mongo-data:
+  #####################
+  # Networks Service
+  #####################
+networks:
+  api-gateway:
