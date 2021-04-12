@@ -5,8 +5,10 @@ services:
   #####################
   webapp:
     restart: always
-    build: .
-    env_file: .env
+    build:
+      context: .
+      dockerfile: books/Dockerfile
+    env_file: books/.env
     ports:
       - 3000:3000
     volumes:

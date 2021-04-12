@@ -17,6 +17,8 @@
 				"Host",
 				"Origin",
 				"User-Agent",
+				"accessToken",
+				"refreshToken",
 				"grant"
 			],
 			"allow_credentials": true,
@@ -33,10 +35,15 @@
 			"enabled": true
 		},
 		"github_com/devopsfaith/krakend-gologging": {
-			"level": "INFO",
-			"prefix": "[KRAKEND]",
+			"level": "DEBUG",
+			"prefix": "[KRAKEND_LOGGING]",
 			"syslog": false,
 			"stdout": true
+		},
+		"extra_config": {
+			"github.com/devopsfaith/krakend/proxy": {
+				"sequential": true
+			}
 		}
 	},
 	"endpoints": [
@@ -52,6 +59,8 @@
 				"Host",
 				"Origin",
 				"User-Agent",
+				"accessToken",
+				"refreshToken",
 				"grant"
 			],
 			"output_encoding": "no-op",
@@ -72,7 +81,7 @@
 									"type": "string"
 								},
 								"code": {
-									"type": "number"
+									"type": "integer"
 								},
 								"method": {
 									"type": "string"
@@ -88,7 +97,23 @@
 						}
 					}
 				}
-			]
+			],
+			"extra_configs": {
+				"github.com/devopsfaith/krakend-jsonschema": {
+					"type": "object",
+					"properties": {
+						"email": {
+							"type": "string",
+							"format": "email"
+						},
+						"pasword": {
+							"type": "string",
+							"format": "password"
+						}
+					},
+					"required": ["email", "password"]
+				}
+			}
 		},
 		{
 			"endpoint": "/book",
@@ -102,6 +127,8 @@
 				"Host",
 				"Origin",
 				"User-Agent",
+				"accessToken",
+				"refreshToken",
 				"grant"
 			],
 			"output_encoding": "no-op",
@@ -122,7 +149,7 @@
 									"type": "string"
 								},
 								"code": {
-									"type": "number"
+									"type": "integer"
 								},
 								"method": {
 									"type": "string"
@@ -135,7 +162,39 @@
 						}
 					}
 				}
-			]
+			],
+			"extra_configs": {
+				"github.com/devopsfaith/krakend-jsonschema": {
+					"type": "object",
+					"properties": {
+						"bookName": {
+							"type": "string"
+						},
+						"bookPrice": {
+							"type": "integer"
+						},
+						"bookReleaseDate": {
+							"type": "string",
+							"format": "date-time"
+						},
+						"bookPublishDate": {
+							"type": "string",
+							"format": "date-time"
+						},
+						"bookLanguage": {
+							"type": "array",
+							"format": "string"
+						},
+						"bookIsbn": {
+							"type": "integer"
+						},
+						"bookPublisher": {
+							"type": "string"
+						}
+					},
+					"required": ["bookName", "bookPrice", "bookReleaseDate", "bookPublishDate", "bookLanguage", "bookIsbn", "bookPublisher"]
+				}
+			}
 		},
 		{
 			"endpoint": "/book",
@@ -149,6 +208,8 @@
 				"Host",
 				"Origin",
 				"User-Agent",
+				"accessToken",
+				"refreshToken",
 				"grant"
 			],
 			"output_encoding": "no-op",
@@ -169,7 +230,7 @@
 									"type": "string"
 								},
 								"code": {
-									"type": "number"
+									"type": "integer"
 								},
 								"method": {
 									"type": "string"
@@ -199,6 +260,8 @@
 				"Host",
 				"Origin",
 				"User-Agent",
+				"accessToken",
+				"refreshToken",
 				"grant"
 			],
 			"output_encoding": "no-op",
@@ -249,10 +312,12 @@
 				"Host",
 				"Origin",
 				"User-Agent",
+				"accessToken",
+				"refreshToken",
 				"grant"
 			],
 			"output_encoding": "no-op",
-			"@comment": "result all book by specific id",
+			"@comment": "delete book by specific id",
 			"backend": [
 				{
 					"host": ["http://webapp:3000"],
@@ -296,10 +361,12 @@
 				"Host",
 				"Origin",
 				"User-Agent",
+				"accessToken",
+				"refreshToken",
 				"grant"
 			],
 			"output_encoding": "no-op",
-			"@comment": "result all book by specific id",
+			"@comment": "update book by specific id",
 			"backend": [
 				{
 					"host": ["http://webapp:3000"],
@@ -316,7 +383,7 @@
 									"type": "string"
 								},
 								"code": {
-									"type": "number"
+									"type": "integer"
 								},
 								"method": {
 									"type": "string"
@@ -329,7 +396,39 @@
 						}
 					}
 				}
-			]
+			],
+			"extra_configs": {
+				"github.com/devopsfaith/krakend-jsonschema": {
+					"type": "object",
+					"properties": {
+						"bookName": {
+							"type": "string"
+						},
+						"bookPrice": {
+							"type": "integer"
+						},
+						"bookReleaseDate": {
+							"type": "string",
+							"format": "date-time"
+						},
+						"bookPublishDate": {
+							"type": "string",
+							"format": "date-time"
+						},
+						"bookLanguage": {
+							"type": "array",
+							"format": "string"
+						},
+						"bookIsbn": {
+							"type": "integer"
+						},
+						"bookPublisher": {
+							"type": "string"
+						}
+					},
+					"required": ["bookName", "bookPrice", "bookReleaseDate", "bookPublishDate", "bookLanguage", "bookIsbn", "bookPublisher"]
+				}
+			}
 		}
 	]
 }
