@@ -5,7 +5,7 @@ const bookSchema = require('../models')
 const authToken = require('../middlewares/middleware.auth')
 
 router.post('/auth/login', async (req, res) => {
-	if (req.body.email !== 'johndoe13@gmail.com' && req.body.password !== 'qwerty12') {
+	if (req.body.email != 'johndoe13@gmail.com' && req.body.password != 'qwerty12') {
 		return res.status(401).json({
 			status: 'LOGIN_ERROR',
 			code: res.statusCode,
@@ -64,7 +64,6 @@ router.post('/book/create', authToken, async (req, res) => {
 })
 
 router.get('/book/results', async (req, res) => {
-
 	console.log(req.headers)
 
 	const findAllBooks = await bookSchema.find({}).lean()

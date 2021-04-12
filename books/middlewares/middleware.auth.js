@@ -14,7 +14,7 @@ module.exports = async (req, res, next) => {
 
 	try {
 		const { email } = jwt.verify(tokenHeader.split('Bearer ')[1], '04b652623618fa9323c4a33970')
-		if (email === 'johndoe13@gmail.com') {
+		if (email == 'johndoe13@gmail.com') {
 			req.email = email
 			return next()
 		}

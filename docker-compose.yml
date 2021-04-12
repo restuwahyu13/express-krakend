@@ -7,12 +7,12 @@ services:
     restart: always
     build:
       context: .
-      dockerfile: books/Dockerfile
-    env_file: books/.env
+      dockerfile: ./books/Dockerfile
+    env_file: ./books/.env
     ports:
       - 3000:3000
     volumes:
-      - .:/usr/src/app
+      - ./books:/usr/src/app
       - /usr/src/app/node_modules
     networks:
       - api-gateway
