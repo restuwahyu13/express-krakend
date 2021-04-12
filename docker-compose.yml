@@ -1,9 +1,9 @@
 version: '3.8'
 services:
   #####################
-  # App Service
+  # Book Service
   #####################
-  webapp:
+  book-service:
     restart: always
     build:
       context: .
@@ -12,8 +12,26 @@ services:
     ports:
       - 3000:3000
     volumes:
-      - ./books:/usr/src/app
-      - /usr/src/app/node_modules
+      - ./books:/usr/src/books
+      - /usr/src/books/node_modules
+    networks:
+      - api-gateway
+    depends_on:
+      - db
+  #####################
+  # Author Service
+  #####################
+  author-service:
+    restart: always
+    build:
+      context: .
+      dockerfile: ./authors/Dockerfile
+    env_file: ./authors/.env
+    ports:
+      - 3000:3000
+    volumes:
+      - ./authors:/usr/src/authors
+      - /usr/src/authors/node_modules
     networks:
       - api-gateway
     depends_on:
@@ -42,7 +60,8 @@ services:
     volumes:
       - ./krakend.json:/etc/krakend/krakend.json
     depends_on:
-      - webapp
+      - book-service
+      - author-service
     networks:
       - api-gateway
   #####################

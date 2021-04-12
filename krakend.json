@@ -67,7 +67,7 @@
 			"@comment": "login authentication",
 			"backend": [
 				{
-					"host": ["http://webapp:3000"],
+					"host": ["http://app-service:3000"],
 					"method": "POST",
 					"url_pattern": "/api/v1/auth/login",
 					"encoding": "no-op",
@@ -135,7 +135,7 @@
 			"@comment": "add new book data",
 			"backend": [
 				{
-					"host": ["http://webapp:3000"],
+					"host": ["http://app-service:3000"],
 					"method": "POST",
 					"url_pattern": "/api/v1/book/create",
 					"encoding": "no-op",
@@ -216,7 +216,7 @@
 			"@comment": "results all book data",
 			"backend": [
 				{
-					"host": ["http://webapp:3000"],
+					"host": ["http://app-service:3000"],
 					"method": "GET",
 					"url_pattern": "/api/v1/book/results",
 					"encoding": "no-op",
@@ -268,7 +268,7 @@
 			"@comment": "result all book by specific id",
 			"backend": [
 				{
-					"host": ["http://webapp:3000"],
+					"host": ["http://app-service:3000"],
 					"method": "GET",
 					"url_pattern": "/api/v1/book/result/{id}",
 					"encoding": "no-op",
@@ -320,7 +320,7 @@
 			"@comment": "delete book by specific id",
 			"backend": [
 				{
-					"host": ["http://webapp:3000"],
+					"host": ["http://app-service:3000"],
 					"method": "DELETE",
 					"url_pattern": "/api/v1/book/delete/{id}",
 					"encoding": "no-op",
@@ -369,7 +369,7 @@
 			"@comment": "update book by specific id",
 			"backend": [
 				{
-					"host": ["http://webapp:3000"],
+					"host": ["http://app-service:3000"],
 					"method": "PUT",
 					"url_pattern": "/api/v1/book/update/{id}",
 					"encoding": "no-op",
@@ -429,6 +429,124 @@
 					"required": ["bookName", "bookPrice", "bookReleaseDate", "bookPublishDate", "bookLanguage", "bookIsbn", "bookPublisher"]
 				}
 			}
+		},
+		{
+			"endpoint": "/author",
+			"method": "POST",
+			"concurrent_calls": 1,
+			"headers_to_pass": [
+				"Accept-Encoding",
+				"Authorization",
+				"Content-Type",
+				"Content-Lenght",
+				"Host",
+				"Origin",
+				"User-Agent",
+				"accessToken",
+				"refreshToken",
+				"grant"
+			],
+			"output_encoding": "no-op",
+			"@comment": "add new author",
+			"backend": [
+				{
+					"host": ["http://author-service:3001"],
+					"method": "POST",
+					"url_pattern": "/api/v1/author/create",
+					"encoding": "no-op",
+					"is_collection": false,
+					"disable_host_sanitize": false,
+					"extra_configs": {
+						"github.com/devopsfaith/krakend-jsonschema": {
+							"type": "object",
+							"properties": {
+								"status": {
+									"type": "string"
+								},
+								"code": {
+									"type": "integer"
+								},
+								"method": {
+									"type": "string"
+								},
+								"message": {
+									"type": "string"
+								}
+							},
+							"required": ["status", "code", "method", "message"]
+						}
+					}
+				}
+			],
+			"extra_configs": {
+				"github.com/devopsfaith/krakend-jsonschema": {
+					"type": "object",
+					"properties": {
+						"bookId": {
+							"type": "string"
+						},
+						"name": {
+							"type": "string"
+						},
+						"state": {
+							"type": "string"
+						},
+						"country": {
+							"type": "string"
+						}
+					},
+					"required": ["bookId", "name", "state", "country"]
+				}
+			}
+		},
+		{
+			"endpoint": "/author",
+			"method": "GET",
+			"concurrent_calls": 1,
+			"headers_to_pass": [
+				"Accept-Encoding",
+				"Authorization",
+				"Content-Type",
+				"Content-Lenght",
+				"Host",
+				"Origin",
+				"User-Agent",
+				"accessToken",
+				"refreshToken",
+				"grant"
+			],
+			"output_encoding": "no-op",
+			"@comment": "results all author",
+			"backend": [
+				{
+					"host": ["http://author-service:3001"],
+					"method": "GET",
+					"url_pattern": "/api/v1/author/results",
+					"encoding": "no-op",
+					"is_collection": false,
+					"disable_host_sanitize": false,
+					"extra_configs": {
+						"github.com/devopsfaith/krakend-jsonschema": {
+							"type": "object",
+							"properties": {
+								"status": {
+									"type": "string"
+								},
+								"code": {
+									"type": "integer"
+								},
+								"method": {
+									"type": "string"
+								},
+								"message": {
+									"type": "string"
+								}
+							},
+							"required": ["status", "code", "method", "message"]
+						}
+					}
+				}
+			]
 		}
 	]
 }

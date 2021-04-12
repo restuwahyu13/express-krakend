@@ -27,8 +27,9 @@ router.post('/auth/login', async (req, res) => {
 
 router.post('/book/create', authToken, async (req, res) => {
 	const checkBook = await bookSchema.find({ $or: [{ name: req.body.bookNamae }, { isbn: req.body.bookIsbn }] }).lean()
+
 	if (checkBook.length > 0) {
-		return res.status(401).json({
+		return res.status(409).json({
 			status: 'CREATED_BOOK_ERROR',
 			code: res.statusCode,
 			method: req.method,
