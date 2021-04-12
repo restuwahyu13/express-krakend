@@ -67,7 +67,7 @@
 			"@comment": "login authentication",
 			"backend": [
 				{
-					"host": ["http://app-service:3000"],
+					"host": ["http://book-service:3000"],
 					"method": "POST",
 					"url_pattern": "/api/v1/auth/login",
 					"encoding": "no-op",
@@ -135,7 +135,7 @@
 			"@comment": "add new book data",
 			"backend": [
 				{
-					"host": ["http://app-service:3000"],
+					"host": ["http://book-service:3000"],
 					"method": "POST",
 					"url_pattern": "/api/v1/book/create",
 					"encoding": "no-op",
@@ -216,7 +216,7 @@
 			"@comment": "results all book data",
 			"backend": [
 				{
-					"host": ["http://app-service:3000"],
+					"host": ["http://book-service:3000"],
 					"method": "GET",
 					"url_pattern": "/api/v1/book/results",
 					"encoding": "no-op",
@@ -268,7 +268,7 @@
 			"@comment": "result all book by specific id",
 			"backend": [
 				{
-					"host": ["http://app-service:3000"],
+					"host": ["http://book-service:3000"],
 					"method": "GET",
 					"url_pattern": "/api/v1/book/result/{id}",
 					"encoding": "no-op",
@@ -320,7 +320,7 @@
 			"@comment": "delete book by specific id",
 			"backend": [
 				{
-					"host": ["http://app-service:3000"],
+					"host": ["http://book-service:3000"],
 					"method": "DELETE",
 					"url_pattern": "/api/v1/book/delete/{id}",
 					"encoding": "no-op",
@@ -369,7 +369,7 @@
 			"@comment": "update book by specific id",
 			"backend": [
 				{
-					"host": ["http://app-service:3000"],
+					"host": ["http://book-service:3000"],
 					"method": "PUT",
 					"url_pattern": "/api/v1/book/update/{id}",
 					"encoding": "no-op",

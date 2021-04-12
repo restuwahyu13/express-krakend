@@ -28,7 +28,7 @@ services:
       dockerfile: ./authors/Dockerfile
     env_file: ./authors/.env
     ports:
-      - 3000:3000
+      - 3001:3001
     volumes:
       - ./authors:/usr/src/authors
       - /usr/src/authors/node_modules
