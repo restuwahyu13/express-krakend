@@ -60,7 +60,7 @@ services:
         FC_ENABLE=1 \
         FC_SETTINGS="$PWD/etc/krakend/configs/endpoints" \
         FC_PARTIALS="$PWD/etc/krakend/configs/plugins" \
-        krakend run -d -c "krakend.json"
+        krakend run -d -c "/etc/krakend/krakend.json"
       "
     restart: always
     ports:
