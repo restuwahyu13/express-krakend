@@ -18,6 +18,8 @@
 				"grant"
 			],
 			"output_encoding": "no-op",
+			"cache_ttl": "3600",
+			"timeout": "7200ms",
 			"backend": [
 				{
 					"host": ["http://author-service:3001"],
@@ -26,6 +28,7 @@
 					"encoding": "no-op",
 					"is_collection": false,
 					"disable_host_sanitize": false,
+					"timeout": "14400ms",
 					"extra_config": {
 						"github.com/devopsfaith/krakend-jsonschema": {
 							"type": "object",
@@ -87,6 +90,8 @@
 				"grant"
 			],
 			"output_encoding": "no-op",
+			"cache_ttl": "3600",
+			"timeout": "7200ms",
 			"backend": [
 				{
 					"host": ["http://author-service:3001"],
@@ -95,6 +100,7 @@
 					"encoding": "no-op",
 					"is_collection": false,
 					"disable_host_sanitize": false,
+					"timeout": "7200ms",
 					"extra_config": {
 						"github.com/devopsfaith/krakend-jsonschema": {
 							"type": "object",
@@ -139,6 +145,8 @@
 				"grant"
 			],
 			"output_encoding": "no-op",
+			"cache_ttl": "3600",
+			"timeout": "7200ms",
 			"backend": [
 				{
 					"host": ["http://author-service:3001"],
@@ -147,6 +155,7 @@
 					"encoding": "no-op",
 					"is_collection": false,
 					"disable_host_sanitize": false,
+					"timeout": "7200ms",
 					"extra_config": {
 						"github.com/devopsfaith/krakend-jsonschema": {
 							"type": "object",
