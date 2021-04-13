@@ -1,0 +1,177 @@
+{
+	"authors_group_route": [
+		{
+			"@comment": "add new author",
+			"endpoint": "/author",
+			"method": "POST",
+			"concurrent_calls": 1,
+			"headers_to_pass": [
+				"Accept-Encoding",
+				"Authorization",
+				"Content-Type",
+				"Content-Lenght",
+				"Host",
+				"Origin",
+				"User-Agent",
+				"accessToken",
+				"refreshToken",
+				"grant"
+			],
+			"output_encoding": "no-op",
+			"backend": [
+				{
+					"host": ["http://author-service:3001"],
+					"method": "POST",
+					"url_pattern": "/api/v1/author/create",
+					"encoding": "no-op",
+					"is_collection": false,
+					"disable_host_sanitize": false,
+					"extra_config": {
+						"github.com/devopsfaith/krakend-jsonschema": {
+							"type": "object",
+							"properties": {
+								"status": {
+									"type": "string"
+								},
+								"code": {
+									"type": "integer"
+								},
+								"method": {
+									"type": "string"
+								},
+								"message": {
+									"type": "string"
+								}
+							},
+							"required": ["status", "code", "method", "message"]
+						}
+					}
+				}
+			],
+			"extra_config": {
+				"github.com/devopsfaith/krakend-jsonschema": {
+					"type": "object",
+					"properties": {
+						"bookId": {
+							"type": "string"
+						},
+						"name": {
+							"type": "string"
+						},
+						"state": {
+							"type": "string"
+						},
+						"country": {
+							"type": "string"
+						}
+					},
+					"required": ["bookId", "name", "state", "country"]
+				}
+			}
+		},
+		{
+			"@comment": "results all author",
+			"endpoint": "/author",
+			"method": "GET",
+			"concurrent_calls": 1,
+			"headers_to_pass": [
+				"Accept-Encoding",
+				"Authorization",
+				"Content-Type",
+				"Content-Lenght",
+				"Host",
+				"Origin",
+				"User-Agent",
+				"accessToken",
+				"refreshToken",
+				"grant"
+			],
+			"output_encoding": "no-op",
+			"backend": [
+				{
+					"host": ["http://author-service:3001"],
+					"method": "GET",
+					"url_pattern": "/api/v1/author/results",
+					"encoding": "no-op",
+					"is_collection": false,
+					"disable_host_sanitize": false,
+					"extra_config": {
+						"github.com/devopsfaith/krakend-jsonschema": {
+							"type": "object",
+							"properties": {
+								"status": {
+									"type": "string"
+								},
+								"code": {
+									"type": "integer"
+								},
+								"method": {
+									"type": "string"
+								},
+								"message": {
+									"type": "string"
+								},
+								"authors": {
+									"type": "array"
+								}
+							},
+							"required": ["status", "code", "method", "message", "authors"]
+						}
+					}
+				}
+			]
+		},
+		{
+			"@comment": "result author by specific id",
+			"endpoint": "/author/{id}",
+			"method": "GET",
+			"concurrent_calls": 1,
+			"headers_to_pass": [
+				"Accept-Encoding",
+				"Authorization",
+				"Content-Type",
+				"Content-Lenght",
+				"Host",
+				"Origin",
+				"User-Agent",
+				"accessToken",
+				"refreshToken",
+				"grant"
+			],
+			"output_encoding": "no-op",
+			"backend": [
+				{
+					"host": ["http://author-service:3001"],
+					"method": "GET",
+					"url_pattern": "/api/v1/author/result/{id}",
+					"encoding": "no-op",
+					"is_collection": false,
+					"disable_host_sanitize": false,
+					"extra_config": {
+						"github.com/devopsfaith/krakend-jsonschema": {
+							"type": "object",
+							"properties": {
+								"status": {
+									"type": "string"
+								},
+								"code": {
+									"type": "integer"
+								},
+								"method": {
+									"type": "string"
+								},
+								"message": {
+									"type": "string"
+								},
+								"author": {
+									"type": "object"
+								}
+							},
+							"required": ["status", "code", "method", "message", "author"]
+						}
+					}
+				}
+			]
+		}
+	]
+}
