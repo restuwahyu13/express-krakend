@@ -9,7 +9,7 @@
 		{{ include "krakend_proxy.tpl" }}
 	},
 	"endpoints": [
-		{{ range "books_route_group" }},
+		{{ range "books_route_group" }}
 		{
 			"@comment": "{{ .@comment }}",
 			"endpoint": "{{ .endpoint }}",
@@ -21,9 +21,9 @@
 			"timeout": "{{ .timeout }}",
 			"backend": "{{ $.backend }}",
 			"extra_config": "{{ .extra_config }}"
-		}
-		{{ end }},
-		{{ range "authors_route_group" }},
+		},
+		{{ end }}
+		{{ range "authors_route_group" }}
 		{
 			"@comment": "{{ .@comment }}",
 			"endpoint": "{{ .endpoint }}",
