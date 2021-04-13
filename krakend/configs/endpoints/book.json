@@ -7,7 +7,7 @@
 			"concurrent_calls": 1,
 			"headers_to_pass": ["Accept-Encoding", "Content-Type", "Content-Lenght", "Host", "Origin", "User-Agent"],
 			"output_encoding": "no-op",
-			"cache_ttl": "3600",
+			"cache_ttl": "3600ms",
 			"timeout": "7200ms",
 			"backend": [
 				{
@@ -78,7 +78,7 @@
 				"grant"
 			],
 			"output_encoding": "no-op",
-			"cache_ttl": "3600",
+			"cache_ttl": "3600ms",
 			"timeout": "7200ms",
 			"backend": [
 				{
@@ -88,7 +88,7 @@
 					"encoding": "no-op",
 					"is_collection": false,
 					"disable_host_sanitize": false,
-					"timeout": "7200ms",
+					"timeout": "14400ms",
 					"extra_config": {
 						"github.com/devopsfaith/krakend-jsonschema": {
 							"type": "object",
@@ -162,7 +162,7 @@
 				"grant"
 			],
 			"output_encoding": "no-op",
-			"cache_ttl": "3600",
+			"cache_ttl": "3600ms",
 			"timeout": "7200ms",
 			"backend": [
 				{
@@ -216,7 +216,7 @@
 				"grant"
 			],
 			"output_encoding": "no-op",
-			"cache_ttl": "3600",
+			"cache_ttl": "3600ms",
 			"timeout": "7200ms",
 			"backend": [
 				{
@@ -226,7 +226,7 @@
 					"encoding": "no-op",
 					"is_collection": false,
 					"disable_host_sanitize": false,
-					"timeout": "7200ms",
+					"timeout": "14400ms",
 					"extra_config": {
 						"github.com/devopsfaith/krakend-jsonschema": {
 							"type": "object",
@@ -271,7 +271,7 @@
 				"grant"
 			],
 			"output_encoding": "no-op",
-			"cache_ttl": "3600",
+			"cache_ttl": "3600ms",
 			"timeout": "7200ms",
 			"backend": [
 				{
@@ -281,7 +281,7 @@
 					"encoding": "no-op",
 					"is_collection": false,
 					"disable_host_sanitize": false,
-					"timeout": "7200ms",
+					"timeout": "14400ms",
 					"extra_config": {
 						"github.com/devopsfaith/krakend-jsonschema": {
 							"type": "object",
@@ -323,7 +323,7 @@
 				"grant"
 			],
 			"output_encoding": "no-op",
-			"cache_ttl": "3600",
+			"cache_ttl": "3600ms",
 			"timeout": "7200ms",
 			"backend": [
 				{
@@ -333,7 +333,7 @@
 					"encoding": "no-op",
 					"is_collection": false,
 					"disable_host_sanitize": false,
-					"timeout": "7200ms",
+					"timeout": "14400ms",
 					"extra_config": {
 						"github.com/devopsfaith/krakend-jsonschema": {
 							"type": "object",

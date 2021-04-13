@@ -18,7 +18,7 @@
 				"grant"
 			],
 			"output_encoding": "no-op",
-			"cache_ttl": "3600",
+			"cache_ttl": "3600ms",
 			"timeout": "7200ms",
 			"backend": [
 				{
@@ -90,7 +90,7 @@
 				"grant"
 			],
 			"output_encoding": "no-op",
-			"cache_ttl": "3600",
+			"cache_ttl": "3600ms",
 			"timeout": "7200ms",
 			"backend": [
 				{
@@ -145,7 +145,7 @@
 				"grant"
 			],
 			"output_encoding": "no-op",
-			"cache_ttl": "3600",
+			"cache_ttl": "3600ms",
 			"timeout": "7200ms",
 			"backend": [
 				{

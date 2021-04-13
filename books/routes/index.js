@@ -97,7 +97,7 @@ router.get('/book/result/:id', authToken, async (req, res) => {
 			code: res.statusCode,
 			method: req.method,
 			message: 'book data is not exist',
-			books: findBook
+			book: findBook
 		})
 	}
 
