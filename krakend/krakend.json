@@ -17,6 +17,8 @@
 			"concurrent_calls": "{{ .concurrent_calls }}",
 			"headers_to_pass": "{{ $.headers_to_pass }}",
 			"output_encoding": "{{ .output_encoding }}",
+			"cache_ttl": "{{ .cache_ttl }}",
+			"timeout": "{{ .timeout }}",
 			"backend": "{{ $.backend }}",
 			"extra_config": "{{ .extra_config }}"
 		}
@@ -29,6 +31,8 @@
 			"concurrent_calls": "{{ .concurrent_calls }}",
 			"headers_to_pass": "{{ $.headers_to_pass }}",
 			"output_encoding": "{{ .output_encoding }}",
+			"cache_ttl": "{{ .cache_ttl }}",
+			"timeout": "{{ .timeout }}",
 			"backend": "{{ $.backend }}",
 			"extra_config": "{{ .extra_config }}"
 		}
