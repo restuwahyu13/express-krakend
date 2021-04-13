@@ -62,6 +62,8 @@ services:
     depends_on:
       - book-service
       - author-service
+    volumes:
+      - ./krakend/krakend.json:/etc/krakend/krakend.json
     networks:
       - api-gateway
   ######################

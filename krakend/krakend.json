@@ -11,7 +11,6 @@
 	"endpoints": [
 		{{ range "books_route_group" }}
 		{
-			"@comment": "{{ .@comment }}",
 			"endpoint": "{{ .endpoint }}",
 			"method": "{{ .method }}",
 			"concurrent_calls": "{{ .concurrent_calls }}",
@@ -25,7 +24,6 @@
 		{{ end }}
 		{{ range "authors_route_group" }}
 		{
-			"@comment": "{{ .@comment }}",
 			"endpoint": "{{ .endpoint }}",
 			"method": "{{ .method }}",
 			"concurrent_calls": "{{ .concurrent_calls }}",
