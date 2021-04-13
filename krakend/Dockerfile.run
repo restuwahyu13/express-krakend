@@ -1,0 +1,9 @@
+FROM devopsfaith/krakend:latest
+USER ${USER}
+WORKDIR /usr/src/krakend
+COPY ./krakend/krakend.json \
+  ./krakend/scripts/run.sh ./
+COPY ./krakend ./
+RUN chmod 777 -R ./run.sh \
+  && chmod a+x ./run.sh
+ENTRYPOINT [ "./run.sh" ]

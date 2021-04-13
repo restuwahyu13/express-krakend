@@ -7,7 +7,7 @@
 			"allow-origins": ["*"],
 			"allow_headers": ["*"],
 			"allow-methods": ["GET", "POST", "DELETE", "PUT"],
-			"headers_to_pass": [
+			"expose_headers": [
 				"Accept-Encoding",
 				"Authorization",
 				"Content-Type",
@@ -48,7 +48,7 @@
 			"endpoint": "/login",
 			"method": "POST",
 			"concurrent_calls": 1,
-			"expose_headers": [
+			"headers_to_pass": [
 				"Accept-Encoding",
 				"Authorization",
 				"Content-Type",

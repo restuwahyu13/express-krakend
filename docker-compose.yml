@@ -54,7 +54,7 @@ services:
   proxy:
     build:
       context: .
-      dockerfile: ./krakend/Dockerfile
+      dockerfile: ./krakend/Dockerfile.run
     restart: always
     ports:
       - 8080:8080
@@ -62,8 +62,6 @@ services:
     depends_on:
       - book-service
       - author-service
-    volumes:
-      - ./krakend/krakend.json:/etc/krakend/krakend.json
     networks:
       - api-gateway
   ######################

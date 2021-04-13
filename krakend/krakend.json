@@ -9,30 +9,16 @@
 		{{ include "krakend_proxy.tpl" }}
 	},
 	"endpoints": [
-		{{ range "books_route_group" }}
+		{{ range .test.route_group }}
 		{
 			"endpoint": "{{ .endpoint }}",
 			"method": "{{ .method }}",
 			"concurrent_calls": "{{ .concurrent_calls }}",
-			"headers_to_pass": "{{ $.headers_to_pass }}",
+			"headers_to_pass": {{ .headers_to_pass }},
 			"output_encoding": "{{ .output_encoding }}",
 			"cache_ttl": "{{ .cache_ttl }}",
 			"timeout": "{{ .timeout }}",
-			"backend": "{{ $.backend }}",
-			"extra_config": "{{ .extra_config }}"
-		},
-		{{ end }}
-		{{ range "authors_route_group" }}
-		{
-			"endpoint": "{{ .endpoint }}",
-			"method": "{{ .method }}",
-			"concurrent_calls": "{{ .concurrent_calls }}",
-			"headers_to_pass": "{{ $.headers_to_pass }}",
-			"output_encoding": "{{ .output_encoding }}",
-			"cache_ttl": "{{ .cache_ttl }}",
-			"timeout": "{{ .timeout }}",
-			"backend": "{{ $.backend }}",
-			"extra_config": "{{ .extra_config }}"
+			"backend": {{ .backend }}
 		}
 		{{ end }}
 	]

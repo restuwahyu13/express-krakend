@@ -3,6 +3,6 @@
 	"prefix": "[KRAKEND_LOGGING]",
 	"syslog": true,
 	"stdout": true,
-	"format": "logstash,
+	"format": "logstash",
 	"custom_format": "%{message}"
 }

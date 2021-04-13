@@ -1,5 +1,5 @@
 {
-	"books_route_group": [
+	"route_group": [
 		{
 			"@comment": "login authentication",
 			"endpoint": "/login",
