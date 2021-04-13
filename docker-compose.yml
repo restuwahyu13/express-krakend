@@ -55,19 +55,10 @@ services:
     build:
       context: .
       dockerfile: ./krakend/Dockerfile
-    command: |
-      sh -c "
-        FC_ENABLE=1 \
-        FC_SETTINGS="$PWD/etc/krakend/configs/endpoints" \
-        FC_PARTIALS="$PWD/etc/krakend/configs/plugins" \
-        krakend run -d -c "/etc/krakend/krakend.json"
-      "
     restart: always
     ports:
       - 8080:8080
       - 8090:8090
-    volumes:
-      - ./krakend/krakend.json:/etc/krakend
     depends_on:
       - book-service
       - author-service
