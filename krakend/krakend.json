@@ -14,11 +14,10 @@
 			"endpoint": "{{ .endpoint }}",
 			"method": "{{ .method }}",
 			"concurrent_calls": "{{ .concurrent_calls }}",
-			"headers_to_pass": {{ .headers_to_pass }},
+			"headers_to_pass": {{ template .headers_to_pass }},
 			"output_encoding": "{{ .output_encoding }}",
 			"cache_ttl": "{{ .cache_ttl }}",
-			"timeout": "{{ .timeout }}",
-			"backend": {{ .backend }}
+			"timeout": "{{ .timeout }}"
 		}
 		{{ end }}
 	]
