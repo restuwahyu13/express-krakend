@@ -3,4 +3,4 @@ WORKDIR /etc/krakend
 COPY ./krakend/krakend.json \
   ./krakend/script.sh ./
 COPY ./krakend ./
-ENTRYPOINT [ "/etc/krakend/script.sh" ]
+CMD ["/etc/krakend/script.sh"]
