@@ -9,7 +9,85 @@
 		{{ include "krakend_proxy.tpl" }}
 	},
 	"endpoints": [
-		{{ range .test.route.login }}
+		{{ range .book.route.auth_login }}
+		{
+			"@comment": "login authentication",
+			"endpoint": "{{ .endpoint }}",
+			"method": "{{ .method }}",
+			"concurrent_calls": "{{ .concurrent_calls }}",
+			"headers_to_pass": {{ marshal .headers_to_pass }},
+			"output_encoding": "{{ .output_encoding }}",
+			"cache_ttl": "{{ .cache_ttl }}",
+			"timeout": "{{ .timeout }}",
+			"backend": {{ marshal .backend }}
+		},
+		{{ end }}
+		{{ range .book.route.add_book }}
+		{
+			"@comment": "add new book data",
+			"endpoint": "{{ .endpoint }}",
+			"method": "{{ .method }}",
+			"concurrent_calls": "{{ .concurrent_calls }}",
+			"headers_to_pass": {{ marshal .headers_to_pass }},
+			"output_encoding": "{{ .output_encoding }}",
+			"cache_ttl": "{{ .cache_ttl }}",
+			"timeout": "{{ .timeout }}",
+			"backend": {{ marshal .backend }}
+		},
+		{{ end }}
+		{{ range .book.route.results_book }}
+		{
+			"@comment": "results all book data",
+			"endpoint": "{{ .endpoint }}",
+			"method": "{{ .method }}",
+			"concurrent_calls": "{{ .concurrent_calls }}",
+			"headers_to_pass": {{ marshal .headers_to_pass }},
+			"output_encoding": "{{ .output_encoding }}",
+			"cache_ttl": "{{ .cache_ttl }}",
+			"timeout": "{{ .timeout }}",
+			"backend": {{ marshal .backend }}
+		},
+		{{ end }}
+		{{ range .book.route.result_book }}
+		{
+			"@comment": "result all book by specific id",
+			"endpoint": "{{ .endpoint }}",
+			"method": "{{ .method }}",
+			"concurrent_calls": "{{ .concurrent_calls }}",
+			"headers_to_pass": {{ marshal .headers_to_pass }},
+			"output_encoding": "{{ .output_encoding }}",
+			"cache_ttl": "{{ .cache_ttl }}",
+			"timeout": "{{ .timeout }}",
+			"backend": {{ marshal .backend }}
+		},
+		{{ end }}
+		{{ range .book.route.delete_book }}
+		{
+			"@comment": "delete book by specific id",
+			"endpoint": "{{ .endpoint }}",
+			"method": "{{ .method }}",
+			"concurrent_calls": "{{ .concurrent_calls }}",
+			"headers_to_pass": {{ marshal .headers_to_pass }},
+			"output_encoding": "{{ .output_encoding }}",
+			"cache_ttl": "{{ .cache_ttl }}",
+			"timeout": "{{ .timeout }}",
+			"backend": {{ marshal .backend }}
+		},
+		{{ end }}
+		{{ range .book.route.update_book }}
+		{
+			"@comment": "update book by specific id",
+			"endpoint": "{{ .endpoint }}",
+			"method": "{{ .method }}",
+			"concurrent_calls": "{{ .concurrent_calls }}",
+			"headers_to_pass": {{ marshal .headers_to_pass }},
+			"output_encoding": "{{ .output_encoding }}",
+			"cache_ttl": "{{ .cache_ttl }}",
+			"timeout": "{{ .timeout }}",
+			"backend": {{ marshal .backend }}
+		},
+		{{ end }}
+		{{ range .author.route.add_author }}
 		{
 			"endpoint": "{{ .endpoint }}",
 			"method": "{{ .method }}",
@@ -21,7 +99,19 @@
 			"backend": {{ marshal .backend }}
 		},
 		{{ end }}
-		{{ range .test.route.register }}
+		{{ range .author.route.results_author }}
+		{
+			"endpoint": "{{ .endpoint }}",
+			"method": "{{ .method }}",
+			"concurrent_calls": "{{ .concurrent_calls }}",
+			"headers_to_pass": {{ marshal .headers_to_pass }},
+			"output_encoding": "{{ .output_encoding }}",
+			"cache_ttl": "{{ .cache_ttl }}",
+			"timeout": "{{ .timeout }}",
+			"backend": {{ marshal .backend }}
+		},
+		{{ end }}
+		{{ range .author.route.result_author }}
 		{
 			"endpoint": "{{ .endpoint }}",
 			"method": "{{ .method }}",
