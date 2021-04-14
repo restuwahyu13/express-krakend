@@ -17,6 +17,8 @@ module.exports = async (req, res, next) => {
 		if (email == 'johndoe13@gmail.com') {
 			req.email = email
 			return next()
+		} else {
+			return next()
 		}
 	} catch (err) {
 		return res.status(403).json({

@@ -14,7 +14,7 @@ router.post('/auth/login', async (req, res) => {
 		})
 	}
 
-	const accessToken = jwt.sign({ email: req.body.email }, '04b652623618fa9323c4a33970', { expiresIn: '1d' })
+	const accessToken = jwt.sign({ email: req.body.email }, process.env.JWT_SECRET, { expiresIn: '1d' })
 
 	return res.status(200).json({
 		status: 'LOGIN_SUCCESS',
@@ -26,7 +26,7 @@ router.post('/auth/login', async (req, res) => {
 })
 
 router.post('/book/create', authToken, async (req, res) => {
-	const checkBook = await bookSchema.find({ $or: [{ name: req.body.bookNamae }, { isbn: req.body.bookIsbn }] }).lean()
+	const checkBook = await bookSchema.find({ $or: [{ name: req.body.bookName }, { isbn: req.body.bookIsbn }] }).lean()
 
 	if (checkBook.length > 0) {
 		return res.status(409).json({
