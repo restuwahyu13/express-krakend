@@ -13,7 +13,7 @@ module.exports = async (req, res, next) => {
 	}
 
 	try {
-		const { email } = jwt.verify(tokenHeader.split('Bearer ')[1], '04b652623618fa9323c4a33970')
+		const { email } = jwt.verify(tokenHeader.split('Bearer ')[1], process.env.JWT_SECRET)
 		if (email == 'johndoe13@gmail.com') {
 			req.email = email
 			return next()
