@@ -1,4 +1,5 @@
 FROM node:14-alpine
+USER ${USER}
 WORKDIR /usr/src/books
 COPY ./authors/package*.json ./
 COPY ./authors ./
