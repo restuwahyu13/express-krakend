@@ -21,5 +21,5 @@ $ make sa || make sb || npm start
 ```
 
 ```sh
-$ make da || make sa || npm run dev
+$ make da || make db || npm run dev
 ```
