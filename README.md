@@ -2,7 +2,7 @@
 
 Simple fake microservice using krakend api gateway
 
-## Command Reference
+### Command Reference
 
 ```sh
 $ make up || docker-compose up -d --build
