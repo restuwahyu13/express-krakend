@@ -1,92 +1,132 @@
 {
-	"route_group": [
-		{
-			"@comment": "login authentication",
-			"endpoint": "/login",
-			"method": "POST",
-			"concurrent_calls": 1,
-			"headers_to_pass": ["Accept-Encoding", "Content-Type", "Content-Lenght", "Host", "Origin", "User-Agent"],
-			"output_encoding": "no-op",
-			"cache_ttl": "3600ms",
-			"timeout": "7200ms",
-			"backend": [
-				{
-					"host": ["http://book-service:3000"],
-					"method": "POST",
-					"url_pattern": "/api/v1/auth/login",
-					"encoding": "no-op",
-					"is_collection": false,
-					"disable_host_sanitize": false,
-					"timeout": "14400ms",
-					"extra_config": {
-						"github.com/devopsfaith/krakend-jsonschema": {
-							"type": "object",
-							"properties": {
-								"status": {
-									"type": "string"
+	"route": {
+		"login": [
+			{
+				"@comment": "login authentication",
+				"endpoint": "/login",
+				"method": "POST",
+				"concurrent_calls": 1,
+				"headers_to_pass": [
+					"Accept-Encoding",
+					"Accept-Language",
+					"access-control-allow-origin",
+					"Access-Control-Request-Headers",
+					"Access-Control-Request-Method",
+					"Authorization",
+					"Cache-Control",
+					"Connection",
+					"Content-Type",
+					"Host",
+					"If-Modified-Since",
+					"Keep-Alive",
+					"Key",
+					"Origin",
+					"Pragma",
+					"User-Agent",
+					"X-Custom-Header"
+				],
+				"output_encoding": "no-op",
+				"cache_ttl": "3600ms",
+				"timeout": "7200ms",
+				"backend": [
+					{
+						"host": ["http://book-service:3000"],
+						"method": "POST",
+						"url_pattern": "/api/v1/auth/login",
+						"encoding": "no-op",
+						"is_collection": false,
+						"disable_host_sanitize": false,
+						"timeout": "14400ms",
+						"extra_config": {
+							"github.com/devopsfaith/krakend-jsonschema": {
+								"type": "object",
+								"properties": {
+									"status": {
+										"type": "string"
+									},
+									"code": {
+										"type": "integer"
+									},
+									"method": {
+										"type": "string"
+									},
+									"message": {
+										"type": "string"
+									},
+									"accessToken": {
+										"type": "string"
+									}
 								},
-								"code": {
-									"type": "integer"
-								},
-								"method": {
-									"type": "string"
-								},
-								"message": {
-									"type": "string"
-								},
-								"accessToken": {
-									"type": "string"
-								}
-							},
-							"required": ["status", "code", "method", "message"]
+								"required": ["status", "code", "method", "message"]
+							}
 						}
 					}
-				}
-			]
-		},
-		{
-			"@comment": "register authentication",
-			"endpoint": "/register",
-			"method": "POST",
-			"concurrent_calls": 1,
-			"headers_to_pass": ["Accept-Encoding", "Content-Type", "Content-Lenght", "Host", "Origin", "User-Agent"],
-			"output_encoding": "no-op",
-			"cache_ttl": "3600ms",
-			"timeout": "7200ms",
-			"backend": [
-				{
-					"host": ["http://book-service:3000"],
-					"method": "POST",
-					"url_pattern": "/api/v1/auth/register",
-					"encoding": "no-op",
-					"is_collection": false,
-					"disable_host_sanitize": false,
-					"timeout": "14400ms",
-					"extra_config": {
-						"github.com/devopsfaith/krakend-jsonschema": {
-							"type": "object",
-							"properties": {
-								"status": {
-									"type": "string"
+				]
+			}
+		],
+		"register": [
+			{
+				"@comment": "register authentication",
+				"endpoint": "/register",
+				"method": "POST",
+				"concurrent_calls": 1,
+				"headers_to_pass": [
+					"Accept-Encoding",
+					"Accept-Language",
+					"access-control-allow-origin",
+					"Access-Control-Request-Headers",
+					"Access-Control-Request-Method",
+					"Authorization",
+					"Cache-Control",
+					"Connection",
+					"Content-Type",
+					"Host",
+					"If-Modified-Since",
+					"Keep-Alive",
+					"Key",
+					"Origin",
+					"Pragma",
+					"User-Agent",
+					"X-Custom-Header"
+				],
+				"output_encoding": "no-op",
+				"cache_ttl": "3600ms",
+				"timeout": "7200ms",
+				"backend": [
+					{
+						"host": ["http://book-service:3000"],
+						"method": "POST",
+						"url_pattern": "/api/v1/auth/register",
+						"encoding": "no-op",
+						"is_collection": false,
+						"disable_host_sanitize": false,
+						"timeout": "14400ms",
+						"extra_config": {
+							"github.com/devopsfaith/krakend-jsonschema": {
+								"type": "object",
+								"properties": {
+									"status": {
+										"type": "string"
+									},
+									"code": {
+										"type": "integer"
+									},
+									"method": {
+										"type": "string"
+									},
+									"message": {
+										"type": "string"
+									},
+									"accessToken": {
+										"type": "string"
+									}
 								},
-								"code": {
-									"type": "integer"
-								},
-								"method": {
-									"type": "string"
-								},
-								"message": {
-									"type": "string"
-								},
-								"accessToken": {
-									"type": "string"
-								}
-							},
-							"required": ["status", "code", "method", "message"]
+								"required": ["status", "code", "method", "message"]
+							}
 						}
 					}
-				}
-			]
-		}
-	]
+				]
+			}
+		]
+	}
 }

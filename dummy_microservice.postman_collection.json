@@ -31,13 +31,9 @@
 						"url": {
 							"raw": "http://localhost:8080/book",
 							"protocol": "http",
-							"host": [
-								"localhost"
-							],
+							"host": ["localhost"],
 							"port": "8080",
-							"path": [
-								"book"
-							]
+							"path": ["book"]
 						}
 					},
 					"response": []
@@ -68,13 +64,9 @@
 						"url": {
 							"raw": "http://localhost:8080/book",
 							"protocol": "http",
-							"host": [
-								"localhost"
-							],
+							"host": ["localhost"],
 							"port": "8080",
-							"path": [
-								"book"
-							]
+							"path": ["book"]
 						}
 					},
 					"response": []
@@ -105,14 +97,9 @@
 						"url": {
 							"raw": "http://localhost:8080/book/6074194bff97c5001e86f9ec",
 							"protocol": "http",
-							"host": [
-								"localhost"
-							],
+							"host": ["localhost"],
 							"port": "8080",
-							"path": [
-								"book",
-								"6074194bff97c5001e86f9ec"
-							]
+							"path": ["book", "6074194bff97c5001e86f9ec"]
 						}
 					},
 					"response": []
@@ -145,13 +132,9 @@
 						"url": {
 							"raw": "http://localhost:8080/author",
 							"protocol": "http",
-							"host": [
-								"localhost"
-							],
+							"host": ["localhost"],
 							"port": "8080",
-							"path": [
-								"author"
-							]
+							"path": ["author"]
 						}
 					},
 					"response": []
@@ -170,13 +153,9 @@
 						"url": {
 							"raw": "http://localhost:8080/author",
 							"protocol": "http",
-							"host": [
-								"localhost"
-							],
+							"host": ["localhost"],
 							"port": "8080",
-							"path": [
-								"author"
-							]
+							"path": ["author"]
 						}
 					},
 					"response": []
@@ -195,14 +174,9 @@
 						"url": {
 							"raw": "http://localhost:8080/author/607478dcf161dc40bb9a02c0",
 							"protocol": "http",
-							"host": [
-								"localhost"
-							],
+							"host": ["localhost"],
 							"port": "8080",
-							"path": [
-								"author",
-								"607478dcf161dc40bb9a02c0"
-							],
+							"path": ["author", "607478dcf161dc40bb9a02c0"],
 							"query": [
 								{
 									"key": "Autho",
@@ -233,13 +207,9 @@
 				"url": {
 					"raw": "http://localhost:8080/login",
 					"protocol": "http",
-					"host": [
-						"localhost"
-					],
+					"host": ["localhost"],
 					"port": "8080",
-					"path": [
-						"login"
-					]
+					"path": ["login"]
 				}
 			},
 			"response": []

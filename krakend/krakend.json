@@ -9,15 +9,28 @@
 		{{ include "krakend_proxy.tpl" }}
 	},
 	"endpoints": [
-		{{ range .test.route_group }}
+		{{ range .test.route.login }}
 		{
 			"endpoint": "{{ .endpoint }}",
 			"method": "{{ .method }}",
 			"concurrent_calls": "{{ .concurrent_calls }}",
-			"headers_to_pass": {{ template .headers_to_pass }},
+			"headers_to_pass": {{ marshal .headers_to_pass }},
 			"output_encoding": "{{ .output_encoding }}",
 			"cache_ttl": "{{ .cache_ttl }}",
-			"timeout": "{{ .timeout }}"
+			"timeout": "{{ .timeout }}",
+			"backend": {{ marshal .backend }}
+		},
+		{{ end }}
+		{{ range .test.route.register }}
+		{
+			"endpoint": "{{ .endpoint }}",
+			"method": "{{ .method }}",
+			"concurrent_calls": "{{ .concurrent_calls }}",
+			"headers_to_pass": {{ marshal .headers_to_pass }},
+			"output_encoding": "{{ .output_encoding }}",
+			"cache_ttl": "{{ .cache_ttl }}",
+			"timeout": "{{ .timeout }}",
+			"backend": {{ marshal .backend }}
 		}
 		{{ end }}
 	]
