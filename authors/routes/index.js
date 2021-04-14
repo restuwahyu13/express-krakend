@@ -38,7 +38,7 @@ router.post('/author/create', authToken, async (req, res) => {
 			status: 'CREATED_AUTHORS_ERROR',
 			code: res.statusCode,
 			method: req.method,
-			message: 'add new book failed'
+			message: 'add new author failed'
 		})
 	}
 
@@ -46,7 +46,7 @@ router.post('/author/create', authToken, async (req, res) => {
 		status: 'CREATED_AUTHORS_SUCCESS',
 		code: res.statusCode,
 		method: req.method,
-		message: 'add new book successfully'
+		message: 'add new author successfully'
 	})
 })
 
