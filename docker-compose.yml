@@ -9,6 +9,24 @@ services:
       context: .
       dockerfile: ./books/Dockerfile
     env_file: ./books/.env
+    healthcheck: 
+      interval: 120s
+      retries: 5
+      start_period: 60s
+      test: |
+          touch healthcheck.txt &&
+          mkdir healthcheck && 
+          mv healthcheck.txt healthcheck &&
+          cd healthcheck &&
+          echo "hello my docker container is working fine" >> healthcheck.txt && 
+          cat healthcheck.txt &&
+          sleep 5 &&
+          rm "${PWD}/healthcheck.txt" &&
+          cd .. &&
+          sleep 5 &&
+          rmdir "${PWD}/healthcheck" &&
+          exit 0
+      timeout: 30s
     ports:
       - 3000:3000
     volumes:
@@ -27,6 +45,24 @@ services:
       context: .
       dockerfile: ./authors/Dockerfile
     env_file: ./authors/.env
+    healthcheck: 
+      interval: 120s
+      retries: 5
+      start_period: 60s
+      test: |
+          touch healthcheck.txt &&
+          mkdir healthcheck && 
+          mv healthcheck.txt healthcheck &&
+          cd healthcheck &&
+          echo "hello my docker container is working fine" >> healthcheck.txt && 
+          cat healthcheck.txt &&
+          sleep 5 &&
+          rm "${PWD}/healthcheck.txt" &&
+          cd .. &&
+          sleep 5 &&
+          rmdir "${PWD}/healthcheck" &&
+          exit 0
+      timeout: 30s
     ports:
       - 3001:3001
     volumes:
@@ -42,6 +78,24 @@ services:
   db:
     image: mongo
     restart: always
+    healthcheck: 
+      interval: 120s
+      retries: 5
+      start_period: 60s
+      test: |
+          touch healthcheck.txt &&
+          mkdir healthcheck && 
+          mv healthcheck.txt healthcheck &&
+          cd healthcheck &&
+          echo "hello my docker container is working fine" >> healthcheck.txt && 
+          cat healthcheck.txt &&
+          sleep 5 &&
+          rm "${PWD}/healthcheck.txt" &&
+          cd .. &&
+          sleep 5 &&
+          rmdir "${PWD}/healthcheck" &&
+          exit 0
+      timeout: 30s
     ports:
       - 27017:27017
     volumes:
@@ -56,6 +110,24 @@ services:
       context: .
       dockerfile: ./krakend/Dockerfile.run
     restart: always
+    healthcheck: 
+      interval: 120s
+      retries: 5
+      start_period: 60s
+      test: |
+          touch healthcheck.txt &&
+          mkdir healthcheck && 
+          mv healthcheck.txt healthcheck &&
+          cd healthcheck &&
+          echo "hello my docker container is working fine" >> healthcheck.txt && 
+          cat healthcheck.txt &&
+          sleep 5 &&
+          rm "${PWD}/healthcheck.txt" &&
+          cd .. &&
+          sleep 5 &&
+          rmdir "${PWD}/healthcheck" &&
+          exit 0
+      timeout: 30s
     ports:
       - 8080:8080
       - 8090:8090
