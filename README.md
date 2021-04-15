@@ -1,6 +1,6 @@
 ### Express Krakend
 
-Simple fake microservice using krakend api gateway
+simple fake microservice using krakend api gateway
 
 ### Command Reference
 
